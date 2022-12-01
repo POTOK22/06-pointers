@@ -9,15 +9,15 @@ by Grzegorz Potocki
 #include <string.h>
 
 void small_to_capital(char a[]){
-    for(int i=0; i<strlen(a); i++){ //as long as i is smaller than the length of array
-        a[i]=toupper(a[i]);         //every element of an array will be changed to uppercase
+    for(int i=0; i<strlen(a); i++){     //as long as i from 0 is smaller than the length of an array a
+        a[i]=toupper(a[i]);             //value of array a under index i is changed to capital letter
     }
 }
 void bubble_sort(char a[], int b){
-    for(int i=0; i<b-1; i++){
-        for(int j=1;j<b-i; j++){
-            if(a[j-1]>a[j]){
-                std::swap(a[j-1], a[j]);
+    for(int i=0; i<b-1; i++){               //as long as i from 0 is smaller than length of array minus 1
+        for(int j=1;j<b-i; j++){            //as long as j from 0 is smaller than length of array minus actual value of i
+            if(a[j-1]>a[j]){                //if value at j-1 is greater than value at j
+                std::swap(a[j-1], a[j]);    //swap values
             }
         }
     }
@@ -27,17 +27,17 @@ void bubble_sort(char a[], int b){
 }
 void statistics(char a[]){
     int counter;
-    int visited[strlen(a)];
-    for(int i=0; i<strlen(a); i++){
-        if(visited[i]==1){
-            continue;
+    int visited[strlen(a)];                //definition int array "visited" as long as length of array a
+    for(int i=0; i<strlen(a); i++){        //as long as i from 0 is smaller than length of array a
+        if(visited[i]==1){                 //if value of array "visited" if value i is 1
+            continue;                      //then continue
         }
         else {
-            counter=0;
-            for(int j=0; j<strlen(a); j++){
-                if(a[i]==a[j]){
-                    visited[j]=1;
-                    counter++;
+            counter=0;                          //else
+            for(int j=0; j<strlen(a); j++){     //as long as j from 0 is smaller than size of array a
+                if(a[i]==a[j]){                 //if value of index in array a is the same as value of index j
+                    visited[j]=1;               //then visited in index of j is 1
+                    counter++;                  //increment counter because we are counting every visited character
                 }
             }
         }
@@ -45,26 +45,26 @@ void statistics(char a[]){
     }
 }
 void h_mean(int a[], int b){
-    float den=0.0;
-    for(int i=0; i<b; i++){
-        den+=1/static_cast<float>(a[i]);
+    float den=0.0;                              //set float denominator on 0.0
+    for(int i=0; i<b; i++){                     //as long as i form 0 is smaller than b - the sum
+        den+=1/static_cast<float>(a[i]);        //calculating the harmonic mean
     }
     float mean=b/den;
     std::cout<<"harmonic mean: "<<mean<<std::endl;
 }
 void cipher(char a[]){
-    for(int i=0; i<strlen(a); i++){
-        if(a[i]>='A' && a[i]<='Z'){
-            a[i]=('Z'-(a[i]-'A'));
+    for(int i=0; i<strlen(a); i++){             //as long as i from zero is smaller than length of the array
+        if(a[i]>='A' && a[i]<='Z'){             //if character is between A and Z - is big letter
+            a[i]=('Z'-(a[i]-'A'));              //calculating the ascii value of ciphered letter - subtracting the ascii value of 'A' from character under index i and then subtracting it from 'Z'
         }
-        else if(a[i]>='a' && a[i]<='z'){
+        else if(a[i]>='a' && a[i]<='z'){        // the same algorithm as above but now it is for small letters
             a[i]=('z'-(a[i]-'a'));
         }
     }
     std::cout<<a;
 }
 void decipher(char a[]){
-    for(int i=0; i<strlen(a); i++){
+    for(int i=0; i<strlen(a); i++){             //the same algorithm as above but this time it is inverse to simply decipher message
         if(a[i]>='A' && a[i]<='Z'){
             a[i]=('A'-(a[i]-'Z'));
         }
