@@ -13,10 +13,10 @@ void small_to_capital(char a[]){
         a[i]=toupper(a[i]);             //value of array a under index i is changed to capital letter
     }
 }
-void bubble_sort(char a[], int b){
+void bubble_sort(char a[], int b){          //bubble sort
     for(int i=0; i<b-1; i++){               //as long as i from 0 is smaller than length of array minus 1
-        for(int j=1;j<b-i; j++){            //as long as j from 0 is smaller than length of array minus actual value of i
-            if(a[j-1]>a[j]){                //if value at j-1 is greater than value at j
+        for(int j=1;j<b-i; j++){            //as long as j from 1 is smaller than length of array minus actual value of i
+            if(a[j-1]>a[j]){                //check if value at j-1(ex. value at index 1 is greater than value at index 2) is greater than value at j
                 std::swap(a[j-1], a[j]);    //swap values
             }
         }
@@ -29,15 +29,15 @@ void statistics(char a[]){
     int counter;
     int visited[strlen(a)];                //definition int array "visited" as long as length of array a
     for(int i=0; i<strlen(a); i++){        //as long as i from 0 is smaller than length of array a
-        if(visited[i]==1){                 //if value of array "visited" if value i is 1
-            continue;                      //then continue
+        if(visited[i]==1){                 //check if value of array "visited" if value i is 1
+            continue;                      //if it is equal to 1 then continue
         }
         else {
-            counter=0;                          //else
-            for(int j=0; j<strlen(a); j++){     //as long as j from 0 is smaller than size of array a
-                if(a[i]==a[j]){                 //if value of index in array a is the same as value of index j
-                    visited[j]=1;               //then visited in index of j is 1
-                    counter++;                  //increment counter because we are counting every visited character
+            counter=0;                          //if it is not equal to one then set counter to 0
+            for(int j=0; j<strlen(a); j++){     //as long as j from 0 is smaller than length of array a
+                if(a[i]==a[j]){                 //check if value of index at i is the same as value of index j
+                    visited[j]=1;               //if it is then set value of j in array "visited" to 1
+                    counter++;                  //and increment counter because we are counting every visited character
                 }
             }
         }
@@ -55,8 +55,8 @@ void h_mean(int a[], int b){
 void cipher(char a[]){
     for(int i=0; i<strlen(a); i++){             //as long as i from zero is smaller than length of the array
         if(a[i]>='A' && a[i]<='Z'){             //if character is between A and Z - is big letter
-            a[i]=('Z'-(a[i]-'A'));              //calculating the ascii value of ciphered letter - subtracting the ascii value of 'A' from character under index i and then subtracting it from 'Z'
-        }
+            a[i]=('Z'-(a[i]-'A'));              //calculating the ascii value of ciphered letter -
+        }                                       //subtracting the ascii value of 'A' from character under index i and then subtracting it from 'Z'
         else if(a[i]>='a' && a[i]<='z'){        // the same algorithm as above but now it is for small letters
             a[i]=('z'-(a[i]-'a'));
         }
